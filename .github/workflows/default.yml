@@ -214,7 +214,7 @@ jobs:
           docker image inspect cherts/pg-repack:${{ env.PGREPACK_VERSION }}
       - name: Test image cherts/pg-repack:${{ env.PGREPACK_VERSION }}
         run: |
-          docker run --rm --name pg_repack cherts/pg-repack:${{ env.PGREPACK_VERSION }} --versio
+          docker run --rm --name pg_repack cherts/pg-repack:${{ env.PGREPACK_VERSION }} --version
   postgres-18:
     runs-on: ubuntu-latest
     steps:
