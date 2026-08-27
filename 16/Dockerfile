@@ -86,16 +86,16 @@ RUN set -eux; \
 		--with-includes=/usr/local/include \
 		--with-libraries=/usr/local/lib \
 		--with-gssapi \
+		--with-icu \
 		--with-ldap \
-		--with-tcl \
-		--with-perl \
-		--with-python \
-		--with-openssl \
 		--with-libxml \
 		--with-libxslt \
-		--with-icu \
 		--with-llvm \
 		--with-lz4 \
+		--with-openssl \
+		--with-perl \
+		--with-python \
+		--with-tcl \
 		--with-zstd \
 	; \
 	make -j "$(nproc)" world-bin; \
