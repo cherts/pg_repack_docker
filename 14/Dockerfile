@@ -1,4 +1,4 @@
-FROM alpine:3.20
+FROM alpine:3.23
 
 LABEL org.opencontainers.image.authors="sleuthhound@gmail.com"
 
@@ -11,8 +11,8 @@ ENV LANG en_US.utf8
 WORKDIR /pg_repack
 
 ENV DOCKER_PG_LLVM_DEPS \
-		llvm15-dev \
-		clang15
+		llvm21-dev \
+		clang21
 
 RUN set -eux; \
 	\
@@ -57,16 +57,20 @@ RUN set -eux; \
 	; \
 	\
 	cd /usr/src/postgresql; \
+# update "DEFAULT_PGSOCKET_DIR" to "/var/run/postgresql" (matching Debian)
+# see https://anonscm.debian.org/git/pkg-postgresql/postgresql.git/tree/debian/patches/51-default-sockets-in-var.patch?id=8b539fcb3e093a521c095e70bdfa76887217b89f
 	awk '$1 == "#define" && $2 == "DEFAULT_PGSOCKET_DIR" && $3 == "\"/tmp\"" { $3 = "\"/var/run/postgresql\""; print; next } { print }' src/include/pg_config_manual.h > src/include/pg_config_manual.h.new; \
 	grep '/var/run/postgresql' src/include/pg_config_manual.h.new; \
 	mv src/include/pg_config_manual.h.new src/include/pg_config_manual.h; \
 	gnuArch="$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)"; \
-	wget -O config/config.guess 'https://git.savannah.gnu.org/cgit/config.git/plain/config.guess?id=7d3d27baf8107b630586c962c057e22149653deb'; \
-	wget -O config/config.sub 'https://git.savannah.gnu.org/cgit/config.git/plain/config.sub?id=7d3d27baf8107b630586c962c057e22149653deb'; \
 	\
-	export LLVM_CONFIG="/usr/lib/llvm15/bin/llvm-config"; \
-	export CLANG=clang-15; \
+# https://git.alpinelinux.org/aports/tree/community/postgresql15/APKBUILD?h=3.22-stable#n176 ("export LLVM_CONFIG")
+	export LLVM_CONFIG="/usr/lib/llvm21/bin/llvm-config"; \
+# https://git.alpinelinux.org/aports/tree/community/postgresql15/APKBUILD?h=3.22-stable#n180 ("older clang versions don't have a 'clang' exe anymore.")
+	export CLANG=clang-21; \
 	\
+# configure options mostly copying Debian:
+# https://salsa.debian.org/postgresql/postgresql-common/-/blob/6e26b5107295170cc8731a3acbf13228ea15941e/server/postgresql.mk#L32
 	./configure \
 		--enable-option-checking=fatal \
 		--build="$gnuArch" \
