@@ -4,7 +4,7 @@ LABEL org.opencontainers.image.authors="sleuthhound@gmail.com"
 
 ENV PG_MAJOR 16
 ENV PG_VERSION 16.15
-ENV PG_SHA256 c1575341fa7bd40f5274ea465b34390f4dc64cdd0770af327005caaeb9f6b7edv
+ENV PG_SHA256 c1575341fa7bd40f5274ea465b34390f4dc64cdd0770af327005caaeb9f6b7ed
 ENV PG_REPACK_VERSION 1.5.0
 
 ENV LANG en_US.utf8
