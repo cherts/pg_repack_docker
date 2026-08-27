@@ -2,18 +2,18 @@ FROM alpine:3.20
 
 LABEL org.opencontainers.image.authors="sleuthhound@gmail.com"
 
-ENV PG_MAJOR 12
-ENV PG_VERSION 12.22
-ENV PG_SHA256 8df3c0474782589d3c6f374b5133b1bd14d168086edbc13c6e72e67dd4527a3b
-ENV PG_REPACK_VERSION 1.4.5
+ARG PG_REPACK_VERSION=1.4.5
 
-ENV LANG en_US.utf8
+ENV PG_MAJOR=12
+ENV PG_VERSION=12.22
+ENV PG_SHA256=8df3c0474782589d3c6f374b5133b1bd14d168086edbc13c6e72e67dd4527a3b
+ENV PG_REPACK_VERSION=$PG_REPACK_VERSION
+
+ENV LANG=en_US.utf8
 WORKDIR /pg_repack
 
-ENV DOCKER_PG_LLVM_DEPS \
-		llvm15-dev \
-		clang15
-
+ENV DOCKER_PG_LLVM_DEPS="llvm15-dev clang15"
+		
 RUN set -eux; \
 	\
 	wget -O postgresql.tar.bz2 "https://ftp.postgresql.org/pub/source/v$PG_VERSION/postgresql-$PG_VERSION.tar.bz2"; \
