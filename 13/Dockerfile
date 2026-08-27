@@ -1,4 +1,4 @@
-FROM alpine:3.23
+FROM alpine:3.20
 
 LABEL org.opencontainers.image.authors="sleuthhound@gmail.com"
 
