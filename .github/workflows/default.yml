@@ -32,13 +32,13 @@ jobs:
           echo "PGREPACK_VERSION=1.4.5" >> $GITHUB_ENV
           echo "PG_VERSION=12" >> $GITHUB_ENV
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
       - name: Build image cherts/pg-repack:${{ env.PGREPACK_VERSION }}
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./${{ env.PG_VERSION }}
           load: true
@@ -59,13 +59,13 @@ jobs:
           echo "PGREPACK_VERSION=1.4.6" >> $GITHUB_ENV
           echo "PG_VERSION=13" >> $GITHUB_ENV
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
       - name: Build image cherts/pg-repack:${{ env.PGREPACK_VERSION }}
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./${{ env.PG_VERSION }}
           load: true
@@ -86,13 +86,13 @@ jobs:
           echo "PGREPACK_VERSION=1.4.7" >> $GITHUB_ENV
           echo "PG_VERSION=14" >> $GITHUB_ENV
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
       - name: Build image cherts/pg-repack:${{ env.PGREPACK_VERSION }}
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./${{ env.PG_VERSION }}
           load: true
@@ -113,13 +113,13 @@ jobs:
           echo "PGREPACK_VERSION=1.4.8" >> $GITHUB_ENV
           echo "PG_VERSION=15" >> $GITHUB_ENV
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
       - name: Build image cherts/pg-repack:${{ env.PGREPACK_VERSION }}
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./${{ env.PG_VERSION }}
           load: true
@@ -140,13 +140,13 @@ jobs:
           echo "PGREPACK_VERSION=1.5.0" >> $GITHUB_ENV
           echo "PG_VERSION=16" >> $GITHUB_ENV
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
       - name: Build image cherts/pg-repack:${{ env.PGREPACK_VERSION }}
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./${{ env.PG_VERSION }}
           load: true
@@ -167,13 +167,13 @@ jobs:
           echo "PGREPACK_VERSION=1.5.1" >> $GITHUB_ENV
           echo "PG_VERSION=17" >> $GITHUB_ENV
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
       - name: Build image cherts/pg-repack:${{ env.PGREPACK_VERSION }}
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./${{ env.PG_VERSION }}
           load: true
@@ -195,13 +195,13 @@ jobs:
           echo "PGREPACK_VERSION=1.5.2" >> $GITHUB_ENV
           echo "PG_VERSION=17" >> $GITHUB_ENV
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
       - name: Build image cherts/pg-repack:${{ env.PGREPACK_VERSION }}
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./${{ env.PG_VERSION }}
           load: true
@@ -223,13 +223,13 @@ jobs:
           echo "PGREPACK_VERSION=1.5.3" >> $GITHUB_ENV
           echo "PG_VERSION=18" >> $GITHUB_ENV
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
       - name: Build image cherts/pg-repack:${{ env.PGREPACK_VERSION }}
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./${{ env.PG_VERSION }}
           load: true
